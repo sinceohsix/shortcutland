@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌄 Shortcutland Installer</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 10px;
+      height: 100%;
+      background-color: #1C1C1E;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #content {
+      width: 90%;
+      max-width: 500px;
+      background: #333;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .buttons-box {
+      width: 90%;
+      max-width: 600px;
+      background: #333;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    h1 {
+      color: #FFFFFF;
+      margin: 10px 0;
+    }
+
+    h2 {
+      color: #FFFFFF;
+      margin: 10px 0;
+    }
+
+    p {
+      color: #DDDDDD;
+      margin: 10px 0;
+    }
+
+    .markdown-box {
+      background: #222;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      text-align: left;
+    }
+
+    .button-large {
+      width: 100%;
+      background-color: #e89554;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9999px;
+      padding: 15px;
+      margin-bottom: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button-large:hover {
+      background-color: #d97c3b;
+    }
+
+    .button-small {
+      width: 48%;
+      background-color: #444;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9999px;
+      padding: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .button-small:hover {
+      background-color: #555;
+    }
+
+    #copyMessage {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #AAAAAA;
+    }
+
+    .blue-text {
+      color: #007AFF;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <div id="output"></div>
+  </div>
+  <div class="buttons-box">
+    <button class="button-large" id="copyInstall">Install</button>
+    <div>
+      <button class="button-small" id="copyFix">Fix Install</button>
+      <button class="button-small" id="copyUpdate">Update</button>
+    </div>
+    <div id="copyMessage"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+  <script>
+    const converter = new showdown.Converter();
+    const markdownContent = `installermessage`;
+    document.getElementById('output').innerHTML = converter.makeHtml(markdownContent);
+
+    const copyMessage = document.getElementById('copyMessage');
+
+    function copyToClipboard(text, message) {
+      navigator.clipboard.writeText(text).then(() => {
+        copyMessage.innerHTML = `${message} <span class="blue-text">Done</span> to continue.`;
+      }).catch(() => {
+        copyMessage.textContent = 'Failed to copy text.';
+      });
+    }
+
+    document.getElementById('copyInstall').addEventListener('click', () => {
+      copyToClipboard('SCL-install', 'Press');
+    });
+
+    document.getElementById('copyUpdate').addEventListener('click', () => {
+      copyToClipboard('SCL-update', 'Press');
+    });
+
+    document.getElementById('copyFix').addEventListener('click', () => {
+      copyToClipboard('SCL-fix', 'Press');
+    });
+  </script>
+</body>
+</html>
