@@ -77,27 +77,6 @@
             transform: scale(0.98);
         }
 
-        #popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #333;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 16px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 10;
-            max-width: 90%;
-            white-space: nowrap;
-        }
-
-        #popup span {
-            color: #007aff;
-        }
-
         #swipe-text {
             font-size: 16px;
             color: rgba(255, 255, 255, 0.5);
@@ -123,34 +102,6 @@
 <body>
     <h1>🌄 Shortcutland</h1>
     <p>Welcome to Shortcutland, an RPG game created fully in iOS shortcuts!!</p>
-    
-    <div id="swipe-text">Swipe down to exit or...</div>
-
-    <button onclick="copyToClipboard()">Press to Install</button>
-
-    <div id="popup">Press <span>Done</span> to finish installing!</div>
-
-    <div class="footer">
-        <h2>Created by <a href="http://discord.com/users/719044024794742835" target="_blank">me</a>!</h2>
-    </div>
-
-    <script>
-        function copyToClipboard() {
-            const text = "install";
-            navigator.clipboard.writeText(text).then(showPopup, function() {
-                alert('Failed to copy text.');
-            });
-        }
-
-        function showPopup() {
-            const popup = document.getElementById("popup");
-            popup.style.display = "block";
-            setTimeout(() => popup.style.opacity = 1, 10);
-            setTimeout(() => {
-                popup.style.opacity = 0;
-                setTimeout(() => popup.style.display = "none", 500);
-            }, 2000);
-        }
     </script>
 </body>
 </html>
