@@ -1,3 +1,4 @@
-### Version 0.01 Alpha
-Changes made:
-Mutliplayer support started
+### Version Dev Beta 0.1
+Changes:
+1. Installer Reworked
+2. Mutliplayer Battle support has started initial development
