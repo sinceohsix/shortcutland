@@ -37,14 +37,20 @@
       padding: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       text-align: center;
+      margin-bottom: 15px;
     }
 
-    h1 {
-      color: #FFFFFF;
-      margin: 10px 0;
+    .changelog-box {
+      width: 90%;
+      max-width: 600px;
+      background: #444;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      text-align: left;
     }
 
-    h2 {
+    h1, h2 {
       color: #FFFFFF;
       margin: 10px 0;
     }
@@ -52,14 +58,6 @@
     p {
       color: #DDDDDD;
       margin: 10px 0;
-    }
-
-    .markdown-box {
-      background: #222;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 15px 0;
-      text-align: left;
     }
 
     .button-large {
@@ -119,11 +117,18 @@
     </div>
     <div id="copyMessage"></div>
   </div>
+  <div class="changelog-box" id="changelog">
+    <h2>Changelog</h2>
+    <div id="changelogContent"></div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
   <script>
     const converter = new showdown.Converter();
     const markdownContent = `installermessage`;
     document.getElementById('output').innerHTML = converter.makeHtml(markdownContent);
+
+    const changelogMarkdown = `installer-changelog`;
+    document.getElementById('changelogContent').innerHTML = converter.makeHtml(changelogMarkdown);
 
     const copyMessage = document.getElementById('copyMessage');
 
